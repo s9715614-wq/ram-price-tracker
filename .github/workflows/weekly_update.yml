@@ -1,0 +1,48 @@
+name: Weekly RAM Price Update
+
+# 設定觸發時機
+on:
+  schedule:
+    # 這裡使用 Cron 語法。UTC 時間 00:00 等於台灣時間早上 08:00
+    # 設定為：每週五 08:00 執行
+    - cron: '0 0 * * 5'
+  # 允許手動點擊按鈕觸發 (方便測試用)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # 給予寫入權限，這樣機器人才能將生成的圖表存回您的倉庫
+    permissions:
+      contents: write
+
+    steps:
+      # 1. 下載您的程式碼到虛擬機
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. 安裝 Python 環境
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # 3. 安裝需要的套件 (pandas, matplotlib)
+      - name: Install dependencies
+        run: |
+          pip install pandas matplotlib
+
+      # 4. 執行您的爬蟲腳本
+      - name: Run analysis script
+        run: |
+          python ram_tracker.py
+
+      # 5. 將生成的檔案 (csv, png, md) 存檔並上傳回倉庫
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "actions@github.com"
+          git add ram_price_history.csv ram_trend.png weekly_report.md
+          # 檢查是否有變動，有變動才提交，避免錯誤
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: Weekly Price Report" && git push)
