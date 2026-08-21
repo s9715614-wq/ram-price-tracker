@@ -1,11 +1,11 @@
-# 🖥️ DDR4 記憶體週報 (2026-08-14)
+# 🖥️ DDR4 記憶體週報 (2026-08-21)
 
 ## 1. 價格變動摘要
 | 產品名稱 | 本週價格 | 上週價格 | 漲跌幅 (WoW) | 趨勢 |
 |---|---|---|---|---|
-| Kingston Fury Beast DDR4-3200 16GB | $1216 | $1179 | 3.14% | 🔴 漲 |
-| G.SKILL Trident Z Neo DDR4-3600 16GB | $1202 | $1141 | 5.35% | 🔴 漲 |
-| Corsair Vengeance LPX DDR4-3200 32GB | $2305 | $2409 | -4.32% | 🟢 跌 |
+| Kingston Fury Beast DDR4-3200 16GB | $1151 | $1216 | -5.35% | 🟢 跌 |
+| G.SKILL Trident Z Neo DDR4-3600 16GB | $1255 | $1202 | 4.41% | 🔴 漲 |
+| Corsair Vengeance LPX DDR4-3200 32GB | $2384 | $2305 | 3.43% | 🔴 漲 |
 
 ## 2. 分析建議
 - **短期趨勢**：請參考附檔趨勢圖。
